@@ -8,5 +8,5 @@ xgboost
 catboost
 dill
 fastapi
-steramlit
-#  -e .
+streamlit
+# -e .
