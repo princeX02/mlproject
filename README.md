@@ -73,6 +73,12 @@ Open your web browser and navigate to `http://localhost:8501` to access the Stre
 ### 6️⃣ API Documentation
 For API documentation, navigate to `http://localhost:8000/docs` to access the Swagger UI provided by FastAPI.   
 
+
+### Deployment projects links
+- FastAPI Backend: [FASTAPI_URL = "https://mlproject-yg6x.onrender.com/predict"]
+- Streamlit Frontend: [Streamlit Deployment Link = "https://jhhmakygnquxt8khvzqkfc.streamlit.app/"]
+
+
 ### 7️⃣ Project Authors
 - Prince Chaudhary - [GitHub](https://github.com/princechaudhary)
 - B.Tech CSE | Aspiring Data Scientist | ML Enthusiast
