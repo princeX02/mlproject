@@ -1,4 +1,3 @@
-# frontend.py
 import streamlit as st
 import requests
 
@@ -44,4 +43,5 @@ if st.button("Predict Math Score"):
         else:
             st.error(f"Server Error: {response.status_code}")
     except Exception as e:
-        st.error(f"Failed to connect to backend: {e}")
+        st.error(f"❌ Failed to connect to backend: {e}")
+

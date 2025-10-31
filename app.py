@@ -7,7 +7,7 @@ import uvicorn
 
 app = FastAPI(title="Student Exam Performance Indicator")
 
-# Input schema (same as frontend)
+# Input schema
 class InputData(BaseModel):
     gender: str
     ethnicity: str
@@ -17,19 +17,17 @@ class InputData(BaseModel):
     reading_score: float
     writing_score: float
 
-
-# Load model and preprocessor
+# ✅ Load model and preprocessor
 with open("artifacts/model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open("artifacts/proprocessor.pkl", "rb") as f:
+# ⚠️ Typo fixed: your file should be "preprocessor.pkl" not "proprocessor.pkl"
+with open("artifacts/preprocessor.pkl", "rb") as f:
     preprocessor = pickle.load(f)
-
 
 @app.get("/")
 def home():
     return {"message": "Welcome to the Student Exam Performance Prediction API!"}
-
 
 @app.post("/predict")
 def predict(data: InputData):
@@ -37,11 +35,10 @@ def predict(data: InputData):
         # Convert input to DataFrame
         input_df = pd.DataFrame([data.dict()])
 
-        # ✅ Rename column to match what the preprocessor expects
-        # (your preprocessor was trained with 'race_ethnicity')
+        # Rename to match training data
         input_df.rename(columns={'ethnicity': 'race_ethnicity'}, inplace=True)
 
-        # Transform using preprocessor
+        # Transform data
         transformed = preprocessor.transform(input_df)
 
         # Predict math score
@@ -53,7 +50,6 @@ def predict(data: InputData):
         import traceback
         traceback.print_exc()
         return {"error": str(e)}
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
