@@ -22,8 +22,8 @@ with open("artifacts/model.pkl", "rb") as f:
     model = pickle.load(f)
 
 # ⚠️ Typo fixed: your file should be "preprocessor.pkl" not "proprocessor.pkl"
-with open("artifacts/preprocessor.pkl", "rb") as f:
-    preprocessor = pickle.load(f)
+with open("artifacts/proprocessor.pkl", "rb") as f:
+    proprocessor = pickle.load(f)
 
 @app.get("/")
 def home():
@@ -39,7 +39,7 @@ def predict(data: InputData):
         input_df.rename(columns={'ethnicity': 'race_ethnicity'}, inplace=True)
 
         # Transform data
-        transformed = preprocessor.transform(input_df)
+        transformed = proprocessor.transform(input_df)
 
         # Predict math score
         prediction = model.predict(transformed)
