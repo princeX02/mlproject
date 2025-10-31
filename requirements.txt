@@ -8,5 +8,6 @@ xgboost
 catboost
 dill
 fastapi
+uvicorn
 streamlit
 # -e .
