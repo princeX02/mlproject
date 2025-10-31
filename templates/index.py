@@ -2,7 +2,9 @@ import streamlit as st
 import requests
 
 # FastAPI endpoint
-FASTAPI_URL = "http://127.0.0.1:8000/predict"
+# FASTAPI_URL = "http://127.0.0.1:8000/predict"
+FASTAPI_URL = "https://student-api.onrender.com/predict"
+
 
 st.set_page_config(page_title="Student Exam Performance Indicator", layout="centered")
 
